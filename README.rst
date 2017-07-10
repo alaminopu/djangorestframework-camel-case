@@ -1,16 +1,12 @@
-===============================
+====================================
 Django REST Framework JSON CamelCase
-===============================
+====================================
 
-.. image:: https://badge.fury.io/py/djangorestframework-camel-case.png
-    :target: http://badge.fury.io/py/djangorestframework-camel-case
-    
 .. image:: https://travis-ci.org/vbabiy/djangorestframework-camel-case.png?branch=master
         :target: https://travis-ci.org/vbabiy/djangorestframework-camel-case
 
-.. image:: https://pypip.in/d/djangorestframework-camel-case/badge.png
-        :target: https://crate.io/packages/djangorestframework-camel-case?version=latest
-
+.. image:: https://badge.fury.io/py/djangorestframework-camel-case.svg
+    :target: https://badge.fury.io/py/djangorestframework-camel-case
 
 Camel case JSON support for Django REST framework.
 
@@ -23,6 +19,8 @@ At the command line::
     $ pip install djangorestframework-camel-case
 
 Add the render and parser to your django settings file.
+
+.. code-block:: python
 
     # ...
     REST_FRAMEWORK = {
@@ -39,6 +37,23 @@ Add the render and parser to your django settings file.
     }
     # ...
 
+=================
+Swapping Renderer
+=================
+
+By default the package uses `rest_framework.renderers.JSONRenderer`. If you want
+to use another renderer (the only possible alternative is
+`rest_framework.renderers.JSONRenderer`), you must specify it in your django
+settings file.
+
+.. code-block:: python
+
+    # ...
+    JSON_CAMEL_CASE = {
+        'RENDERER_CLASS': 'rest_framework.renderers.UnicodeJSONRenderer'
+    }
+    # ...
+
 =============
 Running Tests
 =============
@@ -48,5 +63,8 @@ To run the current test suite, execute the following from the root of he project
     $ python -m unittest discover
 
 
+=======
+License
+=======
 
 * Free software: BSD license
